@@ -74,23 +74,31 @@ Router.prototype.init = function(mode){
                     } else {
 
                         event.preventDefault();
-                        var href = target.getAttribute('href').split('/')[1];
-                        var path = href.split('?')[0];
+                        var href = target.getAttribute('href');
+                        var path = href.split("?")[0];
+                        var query = location.href.split("?")[1] || '';
+
                         window.history.pushState({
                             path: path
                         }, null, href);
-                        console.log(path);
+                        
+                        // console.log(path);
                         that.routeChange(path);
                     }
                 }
+            });
+            window.addEventListener('popstate', function(event){
+                console.log("?????????");
+                console.log(history.state);
+                console.log(event.state);
             });
             break;
     }
 }
 
 Router.prototype.routeChange = function(path, query){
-    console.log(path);
-    console.log(this);
+    // console.log(path);
+    // console.log(this);
     this[path](query);
 }
 
