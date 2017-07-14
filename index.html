@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#/a">a</a>
+    <a href="#/b">b</a>
+    <a href="/c" class="router-link">c</a>
+    <a href="/b" class="router-link">d</a>
+
+    <script src="./router.js"></script>
+    <script>
+        var routes = [
+            { 
+                path: '/a', 
+                callback: function(){
+                    alert('a');
+                } 
+            },
+            {
+                path: '/b',
+                callback: function(){
+                    alert('b');
+                }
+            },
+            {
+                path: '/c',
+                callback: function(){
+                    alert('c');
+                }
+            },
+            {
+                path: '/d',
+                callback: function(){
+                    alert('d');
+                }
+            }
+        ];
+
+        // new Router({
+        //     mode: 'hash',
+        //     routes,
+        // });
+        new Router({
+            mode: 'history',
+            routes,
+        });
+    </script>
+</body>
+</html>
