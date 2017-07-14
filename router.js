@@ -91,6 +91,7 @@ Router.prototype.init = function(mode){
                 console.log("?????????");
                 console.log(history.state);
                 console.log(event.state);
+                that.routeChange(event.state.path);
             });
             break;
     }
